@@ -1,0 +1,27 @@
+---
+layout: base.njk
+---
+<section class="hero hero--page">
+  <div class="hero__media"><img fetchpriority="high" src="{{ hero_image or card_image or '/assets/jesse-walker-founder-hero-greensboro-nc.webp' }}" alt=""></div>
+  <div class="wrap">
+    <span class="crumb"><a href="/blog.html">Blog</a> / {{ tag or "Marketing tips" }}</span>
+    <h1 class="post-title">{{ title }}</h1>
+    <p class="muted">By {{ author or "Jesse Walker Jr." }} | {{ page.date | readableDate }}</p>
+  </div>
+</section>
+<section class="band round-top band--white">
+  <div class="wrap"><article class="prose">{{ content | safe }}
+    <p><a class="btn" href="/contact.html">Get a Free Marketing Checkup</a> {% if related_service %}<a class="btn btn--ghost" href="/{{ related_service }}.html">{{ related_service | serviceName }}</a>{% else %}<a class="btn btn--ghost" href="/services.html">Our Services</a>{% endif %}</p>
+  </article></div>
+</section>
+{%- set others = [] -%}
+{%- for p in collections.posts | reverse -%}{%- if p.url != page.url and others.length < 2 -%}{%- set others = (others.push(p), others) -%}{%- endif -%}{%- endfor -%}
+{% if others.length %}
+<section class="band round-top band--cream">
+  <div class="wrap stack-lg">
+    <div class="stack"><h2><span class="script">Keep</span>Reading</h2></div>
+    <div class="cards">{% for post in others %}{% include "card.njk" %}{% endfor %}</div>
+  </div>
+</section>
+{% endif %}
+{% include "cta.njk" %}

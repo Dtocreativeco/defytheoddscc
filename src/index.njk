@@ -1,0 +1,115 @@
+---
+layout: base.njk
+permalink: /
+eleventyExcludeFromCollections: false
+eleventyComputed:
+  seo_title: "{{ home.seo_title }}"
+  seo_description: "{{ home.seo_description }}"
+  preload: "{{ home.hero.image }}"
+schema:
+  - '{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Defy The Odds Creative Co.", "url": "https://defytheoddscc.com", "email": "jesse@defytheoddscc.com", "telephone": "+1-336-520-5538", "logo": "https://defytheoddscc.com/assets/defy-the-odds-creative-co-logo.png", "image": "https://defytheoddscc.com/assets/defy-the-odds-creative-co-social-share.jpg", "founder": {"@type": "Person", "name": "Jesse Walker Jr."}, "description": "Creative marketing agency for growing businesses in the North Carolina Piedmont Triad. Strategy, content creation, video production and social media management.", "areaServed": [{"@type": "City", "name": "Greensboro, NC"}, {"@type": "City", "name": "Reidsville, NC"}, {"@type": "City", "name": "Eden, NC"}, {"@type": "City", "name": "High Point, NC"}, {"@type": "City", "name": "Winston-Salem, NC"}, {"@type": "City", "name": "Kernersville, NC"}, {"@type": "City", "name": "Burlington, NC"}, {"@type": "AdministrativeArea", "name": "Piedmont Triad, NC"}], "sameAs": ["https://www.instagram.com/dtocreativeco", "https://www.facebook.com/Dtocreativeco", "https://www.youtube.com/@Dtocreativeco/"], "knowsAbout": ["Social Media Management", "Content Creation", "Video Production", "Marketing Campaigns"]}'
+  - '{"@context": "https://schema.org", "@type": "WebSite", "name": "Defy The Odds Creative Co.", "url": "https://defytheoddscc.com/"}'
+---
+{%- set h = home -%}
+<section class="hero">
+  <div class="hero__media">
+    {% if h.hero.video %}<video autoplay muted loop playsinline poster="{{ h.hero.image }}"><source src="{{ h.hero.video }}" type="video/mp4"></video>
+    {% else %}<img fetchpriority="high" src="{{ h.hero.image }}" alt="">{% endif %}
+  </div>
+  <div class="wrap">
+    <span class="eyebrow">{{ h.hero.eyebrow }}</span>
+    <h1><span class="script">{{ h.hero.script }}</span>{{ h.hero.headline }}</h1>
+    <div class="pipes">{% for p in h.hero.pillars %}<span>{{ p }}</span>{% endfor %}</div>
+    <p class="lede muted">{{ h.hero.text }}</p>
+    <div class="btn-row"><a class="btn" href="/contact.html">Let's Talk</a><a class="btn btn--ghost" href="/services.html">See What We Do</a></div>
+  </div>
+</section>
+
+<section class="band round-top band--white">
+  <div class="wrap split">
+    <p class="statement">{{ h.intro.statement | emphasis | safe }}</p>
+    <div class="stack">
+      <span class="eyebrow">{{ h.intro.eyebrow }}</span>
+      <p class="lede">{{ h.intro.lede }}</p>
+      <p class="muted">{{ h.intro.text }}</p>
+      <div class="btn-row"><a class="btn btn--ghost" href="/about.html">Why Defy The Odds</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="band round-top band--deep">
+  <div class="wrap stack-lg">
+    <div class="stack center"><h2><span class="script">Our</span>Work</h2><p class="lede muted">{{ h.work.text }}</p></div>
+    <div class="collage">
+      <img class="c1" src="/assets/jesse-walker-defy-the-odds-creative-marketing-greensboro-nc.webp" alt="Jesse filming courtside with a cinema camera" loading="lazy" width="1201" height="1800">
+      <img class="c2" src="/assets/event-content-creation-piedmont-triad-nc.webp" alt="Filming a color run event" loading="lazy" width="731" height="1300">
+      <img class="c3" src="/assets/video-production-lighting-setup-greensboro-nc.webp" alt="Interview lighting setup" loading="lazy" width="1800" height="1013">
+      <img class="c4" src="/assets/video-production-interview-greensboro-nc.webp" alt="Group interview shoot in Greensboro" loading="lazy" width="1800" height="1013">
+      <img class="c5" src="/assets/social-media-content-creation-greensboro-nc.webp" alt="Behind the scenes courtside" loading="lazy" width="975" height="1300">
+      <div class="badge"><img src="/assets/defy-the-odds-creative-co-logo.png" alt="Defy The Odds Creative Co." width="700" height="264"></div>
+    </div>
+    <div class="btn-row" style="justify-content:center"><a class="btn" href="/work.html">See More Work</a></div>
+  </div>
+</section>
+
+<section class="band round-top band--white">
+  <div class="wrap stack-lg">
+    <div class="stack"><h2><span class="script">Our</span>Services</h2>
+    <p class="lede muted">{{ h.services.text }}</p></div>
+    <div class="cards"><a class="card" href="/social-media-management.html"><img src="/assets/event-content-creation-piedmont-triad-nc.webp" alt="Social Media Management by Defy The Odds Creative Co. in the Piedmont Triad" loading="lazy" width="731" height="1300"><div class="card__body"><span class="tag">Stay visible</span><h3>Social Media Management</h3><p>Strategy, planning, copywriting, scheduling, publishing and monthly reporting, handled for you.</p><span class="more">Read more</span></div></a><a class="card" href="/content-creation.html"><img src="/assets/social-media-content-creation-greensboro-nc.webp" alt="Content Creation by Defy The Odds Creative Co. in the Piedmont Triad" loading="lazy" width="975" height="1300"><div class="card__body"><span class="tag">Look the part</span><h3>Content Creation</h3><p>Short form video, social first photos and graphics built around your marketing plan.</p><span class="more">Read more</span></div></a><a class="card" href="/video-production.html"><img src="/assets/jesse-walker-defy-the-odds-creative-marketing-greensboro-nc.webp" alt="Video Production by Defy The Odds Creative Co. in the Piedmont Triad" loading="lazy" width="1201" height="1800"><div class="card__body"><span class="tag">Tell the story</span><h3>Video Production</h3><p>Promo videos, testimonials, interviews and brand stories from concept through the final edit.</p><span class="more">Read more</span></div></a><a class="card" href="/marketing-campaigns.html"><img src="/assets/video-production-interview-greensboro-nc.webp" alt="Marketing Campaigns by Defy The Odds Creative Co. in the Piedmont Triad" loading="lazy" width="1800" height="1013"><div class="card__body"><span class="tag">Make a moment</span><h3>Marketing Campaigns</h3><p>Strategy, creative direction and execution for launches, events, new locations and promotions.</p><span class="more">Read more</span></div></a></div>
+  </div>
+</section>
+
+<section class="band round-top band--dark">
+  <div class="wrap stack-lg">
+    <div class="stack"><span class="eyebrow">{{ h.process.eyebrow }}</span><h2>{{ h.process.headline }}</h2></div>
+    <ol class="steps">{% for s in h.process.steps %}<li><span class="num">{{ "0" + loop.index if loop.index < 10 else loop.index }}</span><h3>{{ s.title }}</h3><p class="muted">{{ s.text }}</p></li>{% endfor %}</ol>
+    <div class="btn-row"><a class="btn btn--ghost" href="/process.html">See Our Process</a></div>
+  </div>
+</section>
+
+<section class="band round-top band--cream">
+  <div class="wrap split">
+    <div class="frame"><img src="{{ h.owner.image }}" alt="{{ h.owner.name }}, founder of Defy The Odds Creative Co." loading="lazy" width="1000" height="1500"></div>
+    <div class="stack">
+      <span class="eyebrow">{{ h.owner.eyebrow }}</span>
+      <p class="owner-name"><span class="script">{{ h.owner.script }}</span>{{ h.owner.name }}</p>
+      <p class="lede">{{ h.owner.text }}</p>
+      <div class="btn-row"><a class="btn" href="/about.html">Read His Story</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="band round-top band--white">
+  <div class="wrap split">
+    <div class="stack">
+      <span class="eyebrow">{{ h.audience.eyebrow }}</span>
+      <h2>{{ h.audience.headline }}</h2>
+      <p class="lede muted">{{ h.audience.text }}</p>
+    </div>
+    <ul class="check">{% for pt in h.audience.points %}
+      <li>{{ pt }}</li>{% endfor %}
+    </ul>
+  </div>
+</section>
+
+{% if h.testimonials.length %}
+<section class="band round-top band--cream">
+  <div class="wrap stack-lg">
+    <div class="stack"><h2><span class="script">What clients</span>are saying</h2></div>
+    <div class="quotes">{% for t in h.testimonials %}<blockquote class="quote"><span class="stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><p>{{ t.quote }}</p><cite>{{ t.name }}</cite></blockquote>{% endfor %}</div>
+  </div>
+</section>
+{% endif %}
+
+{% set latest = collections.posts | reverse %}
+{% if latest.length %}
+<section class="band round-top band--white">
+  <div class="wrap stack-lg">
+    <div class="stack"><h2><span class="script">From the</span>Blog</h2><p class="lede muted">{{ h.blog.text }}</p></div>
+    <div class="cards">{% for post in latest | head(3) %}{% include "card.njk" %}{% endfor %}</div>
+  </div>
+</section>
+{% endif %}
+
+{% include "cta.njk" %}

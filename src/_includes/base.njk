@@ -1,0 +1,76 @@
+{%- set canon = canonical or ("/" if page.url == "/" else page.url | replace(".html", "")) -%}
+{%- set pageTitle = seo_title or title -%}
+{%- set pageDesc = seo_description or description -%}
+{%- set shareImage = site.url + (share_image or site.social_image) -%}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{ pageTitle }}</title>
+{% if robots %}<meta name="robots" content="{{ robots }}">
+{% endif %}<meta name="description" content="{{ pageDesc }}">
+<link rel="canonical" href="{{ site.url }}{{ canon }}">
+<meta property="og:title" content="{{ pageTitle }}">
+<meta property="og:description" content="{{ pageDesc }}">
+<meta property="og:url" content="{{ site.url }}{{ canon }}">
+<meta property="og:type" content="{{ og_type or 'website' }}">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:image" content="{{ shareImage }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ pageTitle }}">
+<meta name="twitter:description" content="{{ pageDesc }}">
+<meta name="twitter:image" content="{{ shareImage }}">
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Waiting+for+the+Sunrise&display=swap">
+{% if preload %}<link rel="preload" as="image" href="{{ preload }}" fetchpriority="high">
+{% endif %}<link rel="stylesheet" href="/assets/style.css">
+{% for s in schema %}<script type="application/ld+json">{{ s | safe }}</script>
+{% endfor %}</head>
+<body{% if no_popup %} data-no-popup{% endif %}>
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo-badge" href="/" aria-label="{{ site.name }} home"><img src="/assets/defy-the-odds-creative-co-logo.png" alt="{{ site.name }}" width="700" height="264"></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      {%- for item in [["services","Services"],["process","Process"],["work","Work"],["about","About"],["faq","FAQ"]] -%}
+      <a href="/{{ item[0] }}.html"{% if page.url == "/" + item[0] + ".html" %} aria-current="page"{% endif %}>{{ item[1] }}</a>
+      {%- endfor -%}
+      <a class="pill pill--solid" href="tel:{{ site.phone_link }}">{{ site.phone }}</a><a class="pill" href="/contact.html">Let's Talk</a></nav>
+  </div>
+</header>
+<main>
+{{ content | safe }}
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="footer-logo" href="/"><img src="/assets/defy-the-odds-creative-co-logo.png" alt="{{ site.name }}" width="700" height="264"></a>
+        <p class="footer-tag">{{ site.footer_tagline }}</p>
+      </div>
+      <div><h4>Services</h4><ul><li><a href="/social-media-management.html">Social Media Management</a></li><li><a href="/content-creation.html">Content Creation</a></li><li><a href="/video-production.html">Video Production</a></li><li><a href="/marketing-campaigns.html">Marketing Campaigns</a></li></ul></div>
+      <div><h4>Areas We Serve</h4><ul><li><a href="/marketing-agency-greensboro-nc.html">Greensboro, NC</a></li><li><a href="/marketing-agency-reidsville-nc.html">Reidsville, NC</a></li><li><a href="/marketing-agency-winston-salem-nc.html">Winston-Salem, NC</a></li><li><a href="/marketing-agency-high-point-nc.html">High Point, NC</a></li><li><a href="/marketing-agency-eden-nc.html">Eden, NC</a></li><li><a href="/marketing-agency-kernersville-nc.html">Kernersville, NC</a></li><li><a href="/marketing-agency-burlington-nc.html">Burlington, NC</a></li><li><a href="/areas-we-serve.html">All areas</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="/services.html">Services</a></li><li><a href="/process.html">Process</a></li><li><a href="/work.html">Work</a></li><li><a href="/about.html">About</a></li><li><a href="/faq.html">FAQ</a></li><li><a href="/blog.html">Blog</a></li><li><a href="/contact.html">Free Marketing Checkup</a></li></ul></div>
+      <div><h4>Contact</h4><ul>
+        <li><a href="tel:{{ site.phone_link }}">{{ site.phone }}</a></li>
+        <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+        <li>{{ site.service_area }}</li>
+      </ul><div class="socials" style="margin-top:16px">{% if site.instagram %}<a href="{{ site.instagram }}" target="_blank" rel="noopener">Instagram</a>{% endif %}{% if site.facebook %}<a href="{{ site.facebook }}" target="_blank" rel="noopener">Facebook</a>{% endif %}{% if site.youtube %}<a href="{{ site.youtube }}" target="_blank" rel="noopener">YouTube</a>{% endif %}</div></div>
+    </div>
+    <div class="footer-base">
+      <span>&copy; {{ year }} {{ site.name }} {{ site.footer_note }}</span>
+      <span>{{ site.footer_pillars }}</span>
+    </div>
+  </div>
+</footer>
+{% if site.popup.enabled %}{% include "popup.njk" %}{% endif %}
+<script src="/assets/main.js"></script>
+<!-- HubSpot tracking code (portal 246286021) -->
+<script id="hs-script-loader" async defer src="https://js-na2.hs-scripts.com/246286021.js"></script>
+</body>
+</html>

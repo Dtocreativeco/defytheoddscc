@@ -1,0 +1,33 @@
+---js
+{
+  layout: "base.njk",
+  permalink: "faq.html",
+  title: "FAQ | Defy The Odds Creative Co",
+  description: "Answers to common questions about working with Defy The Odds Creative Co., our services, service area and the free Marketing Checkup.",
+  canonical: "/faq",
+  preload: "/assets/video-production-interview-greensboro-nc.webp",
+  eleventyComputed: {
+    schema: (data) => [JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: (data.faq.items || []).map((i) => ({
+        "@type": "Question",
+        name: i.question,
+        acceptedAnswer: { "@type": "Answer", text: i.answer },
+      })),
+    })],
+  },
+}
+---
+<section class="hero hero--page">
+<div class="hero__media"><img alt="" fetchpriority="high" height="1013" src="/assets/video-production-interview-greensboro-nc.webp" width="1800"/></div>
+<div class="wrap">
+<span class="eyebrow">FAQ</span>
+<h1>Questions, answered.</h1>
+<p class="lede muted">Don't see yours? Email <a href="mailto:{{ site.email }}">{{ site.email }}</a> and we'll reply within 24 hours.</p>
+</div>
+</section>
+<section class="band round-top">
+<div class="wrap"><div class="faq">{% for item in faq.items %}<details><summary>{{ item.question }}</summary><p>{{ item.answer }}</p></details>{% endfor %}</div></div>
+</section>
+{% include "cta.njk" %}

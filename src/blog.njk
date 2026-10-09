@@ -1,0 +1,20 @@
+---
+layout: base.njk
+permalink: blog.html
+title: "Marketing Tips Blog | Defy The Odds Creative Co"
+description: "Practical marketing, social media and video tips for small and growing businesses in Greensboro, Reidsville and the Piedmont Triad."
+canonical: /blog
+preload: /assets/video-production-lighting-setup-greensboro-nc.webp
+---
+<section class="hero hero--page">
+  <div class="hero__media"><img fetchpriority="high" src="/assets/video-production-lighting-setup-greensboro-nc.webp" alt=""></div>
+  <div class="wrap">
+    <span class="eyebrow">Blog</span>
+    <h1><span class="script">Marketing tips</span>for Triad businesses.</h1>
+    <p class="lede muted">Straightforward advice on social media, content and video from the Defy The Odds team.</p>
+  </div>
+</section>
+<section class="band round-top band--white">
+  <div class="wrap"><div class="cards">{% for post in collections.posts | reverse %}{% include "card.njk" %}{% endfor %}</div></div>
+</section>
+{% include "cta.njk" %}

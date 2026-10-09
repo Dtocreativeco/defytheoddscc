@@ -1,0 +1,61 @@
+{
+  "seo_title": "Marketing Agency Greensboro NC | Defy The Odds Creative Co",
+  "seo_description": "Defy The Odds Creative Co. helps growing Piedmont Triad businesses get noticed with strategy, content creation, video production and social media management.",
+  "hero": {
+    "eyebrow": "Creative Marketing Agency | Piedmont Triad, NC",
+    "script": "Your business",
+    "headline": "deserves to be noticed.",
+    "pillars": ["Strategy", "Content", "Social Media"],
+    "text": "We take the guesswork out of marketing for growing businesses in Greensboro, Reidsville and across the Piedmont Triad. We handle the strategy, content and social media so you can focus on running your business while we focus on getting it noticed.",
+    "image": "/assets/jesse-walker-founder-hero-greensboro-nc.webp",
+    "video": ""
+  },
+  "intro": {
+    "statement": "Your business shouldn't be *better than it looks* online.",
+    "eyebrow": "Sound familiar?",
+    "lede": "You know your business needs better marketing. You just don't have the time, the strategy or the team to make it happen every week.",
+    "text": "So posting happens when someone remembers. The content doesn't match the quality of your work. And you're not sure any of it is bringing in customers. Defy The Odds brings strategy, content creation, video production and social media together under one partner, so your marketing finally looks as good as your business actually is."
+  },
+  "work": {
+    "text": "Real businesses, real events, real people across the Triad."
+  },
+  "services": {
+    "text": "Four services with one plan behind all of them. Strategy leads. Content, video and social media are the tools we use to carry it out."
+  },
+  "process": {
+    "eyebrow": "How it works",
+    "headline": "We plan it. We create it. We manage it. We measure it.",
+    "steps": [
+      { "title": "Understand", "text": "We learn your business, your goals, your audience, your current marketing and what's getting in the way." },
+      { "title": "Strategize", "text": "We decide what your business should say, where it should show up and what content it needs." },
+      { "title": "Create", "text": "We produce the video, photos, graphics and copy the plan calls for." },
+      { "title": "Execute", "text": "We publish, manage and roll out the marketing and campaigns we agreed on." },
+      { "title": "Learn and Improve", "text": "We review how it performed, pull out the lessons and make the next round better." }
+    ]
+  },
+  "owner": {
+    "eyebrow": "Meet the owner",
+    "script": "Defying the odds since day one",
+    "name": "Jesse Walker Jr.",
+    "text": "Statistically, Jesse wasn't supposed to graduate high school, let alone build a business. Defy The Odds is named for the choice he made not to be a statistic. Now he helps Triad business owners get the attention their work deserves.",
+    "image": "/assets/jesse-walker-founder-defy-the-odds-greensboro-nc.webp"
+  },
+  "audience": {
+    "eyebrow": "Who we work with",
+    "headline": "Built for businesses ready to grow.",
+    "text": "Our best clients are established service businesses in the Triad that see marketing as an investment, not an expense.",
+    "points": [
+      "You've outgrown doing your own marketing but aren't ready to hire a full marketing team.",
+      "You want more visibility, more customers and more opportunities.",
+      "You want a partner who brings ideas and strategy, not someone who just takes orders.",
+      "You'll tell us about your business and trust us with the creative."
+    ]
+  },
+  "testimonials": [
+    { "quote": "When I saw the video for the first time I was just amazed. He shot it on a Friday/Saturday night and it was in my hands by Sunday.", "name": "Amy Pagano, Owner, Grapes & Grain Tavern" },
+    { "quote": "In love with that video!!", "name": "Callum McGinnis, Realtor" }
+  ],
+  "blog": {
+    "text": "Practical marketing tips for Triad business owners."
+  }
+}

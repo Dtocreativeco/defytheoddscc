@@ -1,0 +1,37 @@
+<div class="lead-modal" id="lead-modal" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title" hidden>
+  <div class="lead-modal__scrim" data-close></div>
+  <div class="lead-modal__box">
+    <button class="lead-modal__close" type="button" aria-label="Close" data-close>&times;</button>
+    <div class="lead-modal__head">
+      <h2 id="lead-modal-title"><span class="script">{{ site.popup.script }}</span>{{ site.popup.headline }}</h2>
+      <p>{{ site.popup.text }}</p>
+    </div>
+    <div class="lead-modal__body">
+      <form class="form lead-form" id="popup-form" novalidate>
+      <div class="row">
+        <div class="field"><label for="popup-first">First name</label><input id="popup-first" name="firstname" autocomplete="given-name" required></div>
+        <div class="field"><label for="popup-last">Last name</label><input id="popup-last" name="lastname" autocomplete="family-name" required></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="popup-email">Email</label><input id="popup-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="popup-phone">Phone</label><input id="popup-phone" name="phone" type="tel" autocomplete="tel"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="popup-company">Business name</label><input id="popup-company" name="company" autocomplete="organization" required></div>
+        <div class="field"><label for="popup-website">Website or Instagram</label><input id="popup-website" name="website" placeholder="yourbusiness.com"></div>
+      </div>
+      <fieldset class="field"><legend>What do you need help with?</legend><div class="chips"><label><input type="checkbox" name="services_interested_in" value="Social Media Management"><span>Social Media Management</span></label><label><input type="checkbox" name="services_interested_in" value="Content Creation"><span>Content Creation</span></label><label><input type="checkbox" name="services_interested_in" value="Marketing Campaigns"><span>Marketing Campaigns</span></label><label><input type="checkbox" name="services_interested_in" value="Not Sure Yet"><span>Not Sure Yet</span></label></div></fieldset>
+      <div class="field"><label for="popup-source">How did you hear about us?</label>
+        <select id="popup-source" name="dto_lead_source"><option value="">Choose one</option><option value="Google Search">Google search</option><option value="Instagram">Social media</option><option value="Referral">Referral from someone</option><option value="Networking / In-Person">Met in person / networking</option><option value="Reidsville Chamber Directory">Reidsville Chamber</option><option value="Event">Event</option><option value="Other">Other</option></select></div>
+      <div class="hp" aria-hidden="true"><label for="popup-hp">Leave this empty</label><input id="popup-hp" name="company_url_hp" tabindex="-1" autocomplete="off"></div>
+      <div><button class="btn" type="submit">Book My Free Checkup</button></div>
+      <p class="form-status" role="status" aria-live="polite"></p>
+      <p class="fine">Free, no pressure, no obligation. We'll reach out within 24 hours to set up a 15 minute call.</p>
+    </form>
+    <div class="form-success" hidden>
+      <h3>You're on the list.</h3>
+      <p>Thanks for reaching out. Jesse will review your business and reach out within 24 hours to schedule your 15 minute Marketing Checkup call.</p>
+    </div>
+    </div>
+  </div>
+</div>

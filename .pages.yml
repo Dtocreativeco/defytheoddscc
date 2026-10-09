@@ -1,0 +1,211 @@
+# Editor setup for defytheoddscc.com (Pages CMS)
+# Every save here updates the live site about a minute later.
+
+media:
+  input: src/assets/uploads
+  output: /assets/uploads
+  categories: [image]
+  rename: safe
+
+content:
+  # ---------------- Blog ----------------
+  - name: blog
+    label: Blog Posts
+    description: Write, edit or delete blog posts. New posts show up on the Blog page and the homepage automatically.
+    type: collection
+    path: src/blog
+    exclude: [blog.11tydata.js]
+    filename: "{primary}.md"
+    format: yaml-frontmatter
+    view:
+      fields: [title, date, draft]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+        description: The headline. Also becomes the page address, so pick it carefully before the first save.
+      - name: description
+        label: Short summary
+        type: text
+        required: true
+        description: 1 to 2 sentences. Shows on the blog cards and in Google search results.
+      - name: date
+        label: Publish date
+        type: date
+        required: true
+      - name: tag
+        label: Category
+        type: select
+        default: Marketing tips
+        options:
+          values: [Marketing tips, Social media, Video, Behind the scenes, Client spotlight, News]
+      - name: card_image
+        label: Cover photo
+        type: image
+        required: true
+        description: Shows on the blog cards. A horizontal photo works best.
+      - name: hero_image
+        label: Top banner photo (optional)
+        type: image
+        description: The big dark photo behind the title. Leave empty to use the cover photo.
+      - name: related_service
+        label: Service to link at the end (optional)
+        type: select
+        options:
+          values:
+            - { label: Social Media Management, value: social-media-management }
+            - { label: Content Creation, value: content-creation }
+            - { label: Video Production, value: video-production }
+            - { label: Marketing Campaigns, value: marketing-campaigns }
+      - name: draft
+        label: Save as draft (hide from the website)
+        type: boolean
+        default: false
+      - name: seo_title
+        label: Google title (optional)
+        type: string
+        description: Leave empty to use the post title.
+      - name: body
+        label: Post
+        type: rich-text
+        options:
+          format: html
+
+  # ---------------- Homepage ----------------
+  - name: home
+    label: Homepage
+    description: The text on the homepage, section by section.
+    type: file
+    path: src/_data/home.json
+    format: json
+    fields:
+      - name: seo_title
+        label: Google title
+        type: string
+      - name: seo_description
+        label: Google description
+        type: text
+      - name: hero
+        label: Top section
+        type: object
+        fields:
+          - { name: eyebrow, label: Small line above the headline, type: string }
+          - { name: script, label: Handwritten word(s), type: string }
+          - { name: headline, label: Headline, type: string }
+          - { name: pillars, label: "Strategy | Content | Social Media words", type: string, list: true }
+          - { name: text, label: Paragraph, type: text }
+          - { name: image, label: Background photo, type: image }
+          - { name: video, label: Background video (optional, .mp4), type: file }
+      - name: intro
+        label: '"Sound familiar?" section'
+        type: object
+        fields:
+          - { name: statement, label: Big statement (put *stars* around words to make them burgundy italic), type: string }
+          - { name: eyebrow, label: Small heading, type: string }
+          - { name: lede, label: First paragraph, type: text }
+          - { name: text, label: Second paragraph, type: text }
+      - name: work
+        label: Our Work section
+        type: object
+        fields:
+          - { name: text, label: Line under the heading, type: string }
+      - name: services
+        label: Our Services section
+        type: object
+        fields:
+          - { name: text, label: Line under the heading, type: text }
+      - name: process
+        label: How it works section
+        type: object
+        fields:
+          - { name: eyebrow, label: Small heading, type: string }
+          - { name: headline, label: Headline, type: string }
+          - name: steps
+            label: Steps
+            type: object
+            list: true
+            fields:
+              - { name: title, label: Step name, type: string }
+              - { name: text, label: Description, type: text }
+      - name: owner
+        label: Meet the owner section
+        type: object
+        fields:
+          - { name: eyebrow, label: Small heading, type: string }
+          - { name: script, label: Handwritten line, type: string }
+          - { name: name, label: Name, type: string }
+          - { name: text, label: Paragraph, type: text }
+          - { name: image, label: Photo, type: image }
+      - name: audience
+        label: Who we work with section
+        type: object
+        fields:
+          - { name: eyebrow, label: Small heading, type: string }
+          - { name: headline, label: Headline, type: string }
+          - { name: text, label: Paragraph, type: text }
+          - { name: points, label: Checklist points, type: string, list: true }
+      - name: testimonials
+        label: Client testimonials
+        type: object
+        list: true
+        fields:
+          - { name: quote, label: Quote, type: text }
+          - { name: name, label: "Name, title, business", type: string }
+      - name: blog
+        label: From the Blog section
+        type: object
+        fields:
+          - { name: text, label: Line under the heading, type: string }
+
+  # ---------------- FAQ ----------------
+  - name: faq
+    label: FAQ
+    description: Questions and answers on the FAQ page. Google can show these in search results too.
+    type: file
+    path: src/_data/faq.json
+    format: json
+    fields:
+      - name: items
+        label: Questions
+        type: object
+        list: true
+        fields:
+          - { name: question, label: Question, type: string }
+          - { name: answer, label: Answer, type: text }
+
+  # ---------------- Contact info & popup ----------------
+  - name: site
+    label: Contact Info & Popup
+    description: Phone, email and social links used across the whole site, plus the free checkup popup.
+    type: file
+    path: src/_data/site.json
+    format: json
+    fields:
+      - { name: phone, label: Phone (as shown), type: string }
+      - { name: phone_link, label: "Phone for tap-to-call (like +13365205538)", type: string }
+      - { name: email, label: Email, type: string }
+      - { name: service_area, label: Service area line, type: string }
+      - { name: footer_tagline, label: Footer tagline, type: string }
+      - { name: footer_note, label: Footer small print, type: string }
+      - { name: footer_pillars, label: Footer pillars, type: string }
+      - { name: instagram, label: Instagram link, type: string }
+      - { name: facebook, label: Facebook link, type: string }
+      - { name: youtube, label: YouTube link, type: string }
+      - name: popup
+        label: Free checkup popup
+        type: object
+        fields:
+          - { name: enabled, label: Show the popup, type: boolean }
+          - { name: script, label: Handwritten line, type: string }
+          - { name: headline, label: Headline, type: string }
+          - { name: text, label: Paragraph, type: text }
+      # kept but not shown in the editor
+      - { name: name, type: string, hidden: true }
+      - { name: url, type: string, hidden: true }
+      - { name: social_image, type: string, hidden: true }
