@@ -1,21 +1,21 @@
 {
-  "name": "Defy The Odds Creative Co.",
-  "url": "https://defytheoddscc.com",
   "phone": "(336) 520-5538",
   "phone_link": "+13365205538",
   "email": "jesse@defytheoddscc.com",
-  "service_area": "Serving the NC Piedmont Triad",
+  "service_area": "Serving Greensboro, Reidsville and the NC Piedmont Triad",
   "footer_tagline": "You run your business. We make sure people notice it.",
   "footer_note": "Creative marketing agency serving Greensboro, Rockingham County and the Piedmont Triad.",
   "footer_pillars": "Strategy | Content | Social Media",
   "instagram": "https://www.instagram.com/dtocreativeco",
   "facebook": "https://www.facebook.com/Dtocreativeco",
   "youtube": "https://www.youtube.com/@Dtocreativeco/",
-  "social_image": "/assets/defy-the-odds-creative-co-social-share.jpg",
   "popup": {
     "enabled": true,
     "script": "Free for Triad businesses",
     "headline": "Is your business better than it looks online?",
     "text": "Tell us a little about your business. We'll take a look at your current marketing and walk you through what we see on a free 15 minute call."
-  }
+  },
+  "name": "Defy The Odds Creative Co.",
+  "url": "https://defytheoddscc.com",
+  "social_image": "/assets/defy-the-odds-creative-co-social-share.jpg"
 }
